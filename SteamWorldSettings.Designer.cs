@@ -37,7 +37,7 @@
 			this.chkGenerator2 = new System.Windows.Forms.CheckBox();
 			this.chkVectron = new System.Windows.Forms.CheckBox();
 			this.chkStaticDash = new System.Windows.Forms.CheckBox();
-			this.chkMineralMarker = new System.Windows.Forms.CheckBox();
+			this.chkMineralDector = new System.Windows.Forms.CheckBox();
 			this.chkGenerator3 = new System.Windows.Forms.CheckBox();
 			this.chkFallDampeners = new System.Windows.Forms.CheckBox();
 			this.chkDandy = new System.Windows.Forms.CheckBox();
@@ -72,12 +72,12 @@
 			this.flowOptions.Controls.Add(this.chkGenerator1);
 			this.flowOptions.Controls.Add(this.chkBiff);
 			this.flowOptions.Controls.Add(this.chkSteamPunch);
+			this.flowOptions.Controls.Add(this.chkFallDampeners);
 			this.flowOptions.Controls.Add(this.chkGenerator2);
 			this.flowOptions.Controls.Add(this.chkVectron);
+			this.flowOptions.Controls.Add(this.chkMineralDector);
 			this.flowOptions.Controls.Add(this.chkStaticDash);
-			this.flowOptions.Controls.Add(this.chkMineralMarker);
 			this.flowOptions.Controls.Add(this.chkGenerator3);
-			this.flowOptions.Controls.Add(this.chkFallDampeners);
 			this.flowOptions.Controls.Add(this.chkDandy);
 			this.flowOptions.Controls.Add(this.chkGold20K);
 			this.flowOptions.Controls.Add(this.chkOrbs150);
@@ -187,10 +187,10 @@
 			// chkGenerator2
 			// 
 			this.chkGenerator2.AutoSize = true;
-			this.chkGenerator2.Location = new System.Drawing.Point(3, 187);
+			this.chkGenerator2.Location = new System.Drawing.Point(3, 210);
 			this.chkGenerator2.Name = "chkGenerator2";
 			this.chkGenerator2.Size = new System.Drawing.Size(82, 17);
-			this.chkGenerator2.TabIndex = 8;
+			this.chkGenerator2.TabIndex = 9;
 			this.chkGenerator2.Text = "Generator 2";
 			this.toolTips.SetToolTip(this.chkGenerator2, "Splits upon destroying the Generator in Old World");
 			this.chkGenerator2.UseVisualStyleBackColor = true;
@@ -199,10 +199,10 @@
 			// chkVectron
 			// 
 			this.chkVectron.AutoSize = true;
-			this.chkVectron.Location = new System.Drawing.Point(3, 210);
+			this.chkVectron.Location = new System.Drawing.Point(3, 233);
 			this.chkVectron.Name = "chkVectron";
 			this.chkVectron.Size = new System.Drawing.Size(63, 17);
-			this.chkVectron.TabIndex = 9;
+			this.chkVectron.TabIndex = 10;
 			this.chkVectron.Text = "Vectron";
 			this.toolTips.SetToolTip(this.chkVectron, "Splits upon entering Vectron");
 			this.chkVectron.UseVisualStyleBackColor = true;
@@ -211,46 +211,46 @@
 			// chkStaticDash
 			// 
 			this.chkStaticDash.AutoSize = true;
-			this.chkStaticDash.Location = new System.Drawing.Point(3, 233);
+			this.chkStaticDash.Location = new System.Drawing.Point(3, 279);
 			this.chkStaticDash.Name = "chkStaticDash";
 			this.chkStaticDash.Size = new System.Drawing.Size(81, 17);
-			this.chkStaticDash.TabIndex = 10;
+			this.chkStaticDash.TabIndex = 12;
 			this.chkStaticDash.Text = "Static Dash";
 			this.toolTips.SetToolTip(this.chkStaticDash, "Splits upon gaining Static Dash");
 			this.chkStaticDash.UseVisualStyleBackColor = true;
 			this.chkStaticDash.CheckedChanged += new System.EventHandler(this.chkBox_CheckedChanged);
 			// 
-			// chkMineralMarker
+			// chkMineralDector
 			// 
-			this.chkMineralMarker.AutoSize = true;
-			this.chkMineralMarker.Location = new System.Drawing.Point(3, 256);
-			this.chkMineralMarker.Name = "chkMineralMarker";
-			this.chkMineralMarker.Size = new System.Drawing.Size(96, 17);
-			this.chkMineralMarker.TabIndex = 11;
-			this.chkMineralMarker.Text = "Mineral Marker";
-			this.toolTips.SetToolTip(this.chkMineralMarker, "Splits upon gaining Static Dash");
-			this.chkMineralMarker.UseVisualStyleBackColor = true;
-			this.chkMineralMarker.CheckedChanged += new System.EventHandler(this.chkBox_CheckedChanged);
+			this.chkMineralDector.AutoSize = true;
+			this.chkMineralDector.Location = new System.Drawing.Point(3, 256);
+			this.chkMineralDector.Name = "chkMineralDector";
+			this.chkMineralDector.Size = new System.Drawing.Size(104, 17);
+			this.chkMineralDector.TabIndex = 11;
+			this.chkMineralDector.Text = "Mineral Detector";
+			this.toolTips.SetToolTip(this.chkMineralDector, "Splits upon gaining Static Dash");
+			this.chkMineralDector.UseVisualStyleBackColor = true;
+			this.chkMineralDector.CheckedChanged += new System.EventHandler(this.chkBox_CheckedChanged);
 			// 
 			// chkGenerator3
 			// 
 			this.chkGenerator3.AutoSize = true;
-			this.chkGenerator3.Location = new System.Drawing.Point(3, 279);
+			this.chkGenerator3.Location = new System.Drawing.Point(3, 302);
 			this.chkGenerator3.Name = "chkGenerator3";
 			this.chkGenerator3.Size = new System.Drawing.Size(82, 17);
-			this.chkGenerator3.TabIndex = 12;
+			this.chkGenerator3.TabIndex = 13;
 			this.chkGenerator3.Text = "Generator 3";
-			this.toolTips.SetToolTip(this.chkGenerator3, "Splits upon destroying the Generator in Vectron");
+			this.toolTips.SetToolTip(this.chkGenerator3, "Splits upon destroying the final Generator in Vectron");
 			this.chkGenerator3.UseVisualStyleBackColor = true;
 			this.chkGenerator3.CheckedChanged += new System.EventHandler(this.chkBox_CheckedChanged);
 			// 
 			// chkFallDampeners
 			// 
 			this.chkFallDampeners.AutoSize = true;
-			this.chkFallDampeners.Location = new System.Drawing.Point(3, 302);
+			this.chkFallDampeners.Location = new System.Drawing.Point(3, 187);
 			this.chkFallDampeners.Name = "chkFallDampeners";
 			this.chkFallDampeners.Size = new System.Drawing.Size(99, 17);
-			this.chkFallDampeners.TabIndex = 13;
+			this.chkFallDampeners.TabIndex = 8;
 			this.chkFallDampeners.Text = "Fall Dampeners";
 			this.toolTips.SetToolTip(this.chkFallDampeners, "Splits upon gaining Fall Dampeners");
 			this.chkFallDampeners.UseVisualStyleBackColor = true;
@@ -328,7 +328,7 @@
 		private System.Windows.Forms.CheckBox chkGenerator1;
 		private System.Windows.Forms.CheckBox chkGenerator2;
 		private System.Windows.Forms.CheckBox chkGenerator3;
-		private System.Windows.Forms.CheckBox chkMineralMarker;
+		private System.Windows.Forms.CheckBox chkMineralDector;
 		private System.Windows.Forms.CheckBox chkGold20K;
 		private System.Windows.Forms.CheckBox chkOrbs150;
 		private System.Windows.Forms.CheckBox chkDandy;

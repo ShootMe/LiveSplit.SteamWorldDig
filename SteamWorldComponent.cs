@@ -81,7 +81,7 @@ namespace LiveSplit.SteamWorldDig {
 					} else if (settings.StaticDash && !currentAquirements.Contains("enable_jump_double") && aquirements.Contains("enable_jump_double")) {
 						shouldSplit = true;
 						currentAquirements.Add("enable_jump_double");
-					} else if (settings.MineralMarker && !currentAquirements.Contains("minimap_resources") && aquirements.Contains("minimap_resources")) {
+					} else if (settings.MineralDetector && !currentAquirements.Contains("minimap_resources") && aquirements.Contains("minimap_resources")) {
 						shouldSplit = true;
 						currentAquirements.Add("minimap_resources");
 					} else if (settings.Generator3 && !currentAquirements.Contains("disable_barrier_boss1") && aquirements.Contains("disable_barrier_boss1")) {

@@ -14,7 +14,7 @@ namespace LiveSplit.SteamWorldDig {
 		public bool Generator2 { get; set; }
 		public bool Vectron { get; set; }
 		public bool StaticDash { get; set; }
-		public bool MineralMarker { get; set; }
+		public bool MineralDetector { get; set; }
 		public bool Generator3 { get; set; }
 		public bool FallDampeners { get; set; }
 		public bool Dandy { get; set; }
@@ -38,7 +38,7 @@ namespace LiveSplit.SteamWorldDig {
 			Generator2 = false;
 			Vectron = false;
 			StaticDash = true;
-			MineralMarker = false;
+			MineralDetector = false;
 			Generator3 = false;
 			FallDampeners = false;
 			Dandy = false;
@@ -65,7 +65,7 @@ namespace LiveSplit.SteamWorldDig {
 			chkGenerator2.Checked = Generator2;
 			chkVectron.Checked = Vectron;
 			chkStaticDash.Checked = StaticDash;
-			chkMineralMarker.Checked = MineralMarker;
+			chkMineralDector.Checked = MineralDetector;
 			chkGenerator3.Checked = Generator3;
 			chkFallDampeners.Checked = FallDampeners;
 			chkDandy.Checked = Dandy;
@@ -89,7 +89,7 @@ namespace LiveSplit.SteamWorldDig {
 			Generator2 = chkGenerator2.Checked;
 			Vectron = chkVectron.Checked;
 			StaticDash = chkStaticDash.Checked;
-			MineralMarker = chkMineralMarker.Checked;
+			MineralDetector = chkMineralDector.Checked;
 			Generator3 = chkGenerator3.Checked;
 			FallDampeners = chkFallDampeners.Checked;
 			Dandy = chkDandy.Checked;
@@ -110,7 +110,7 @@ namespace LiveSplit.SteamWorldDig {
 			SetSetting(document, xmlSettings, chkGenerator2, "Generator2");
 			SetSetting(document, xmlSettings, chkVectron, "Vectron");
 			SetSetting(document, xmlSettings, chkStaticDash, "StaticDash");
-			SetSetting(document, xmlSettings, chkMineralMarker, "MineralMarker");
+			SetSetting(document, xmlSettings, chkMineralDector, "MineralMarker");
 			SetSetting(document, xmlSettings, chkGenerator3, "Generator3");
 			SetSetting(document, xmlSettings, chkFallDampeners, "FallDampeners");
 			SetSetting(document, xmlSettings, chkDandy, "Dandy");
@@ -136,7 +136,7 @@ namespace LiveSplit.SteamWorldDig {
 			Generator2 = GetSetting(settings, "//Generator2");
 			Vectron = GetSetting(settings, "//Vectron");
 			StaticDash = GetSetting(settings, "//StaticDash");
-			MineralMarker = GetSetting(settings, "//MineralMarker");
+			MineralDetector = GetSetting(settings, "//MineralMarker");
 			Generator3 = GetSetting(settings, "//Generator3");
 			FallDampeners = GetSetting(settings, "//FallDampeners");
 			Dandy = GetSetting(settings, "//Dandy");

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Xml;
 namespace LiveSplit.SteamWorldDig {
 	public partial class SteamWorldSettings : UserControl {
+		public bool AutoReset { get; set; }
 		public bool Pickaxe { get; set; }
 		public bool SpeedBoots { get; set; }
 		public bool SteamJump { get; set; }
@@ -27,6 +28,7 @@ namespace LiveSplit.SteamWorldDig {
 			InitializeComponent();
 
 			//Defaults
+			AutoReset = true;
 			Pickaxe = false;
 			SpeedBoots = true;
 			SteamJump = true;
@@ -54,6 +56,7 @@ namespace LiveSplit.SteamWorldDig {
 			isLoading = false;
 		}
 		public void LoadSettings() {
+			chkAutoReset.Checked = AutoReset;
 			chkPickaxe.Checked = Pickaxe;
 			chkSpeedBoots.Checked = SpeedBoots;
 			chkSteamJump.Checked = SteamJump;
@@ -78,6 +81,7 @@ namespace LiveSplit.SteamWorldDig {
 		public void UpdateSplits() {
 			if (isLoading) return;
 
+			AutoReset = chkAutoReset.Checked;
 			Pickaxe = chkPickaxe.Checked;
 			SpeedBoots = chkSpeedBoots.Checked;
 			SteamJump = chkSteamJump.Checked;
@@ -99,6 +103,7 @@ namespace LiveSplit.SteamWorldDig {
 		public XmlNode UpdateSettings(XmlDocument document) {
 			XmlElement xmlSettings = document.CreateElement("Settings");
 
+			SetSetting(document, xmlSettings, chkAutoReset, "AutoReset");
 			SetSetting(document, xmlSettings, chkPickaxe, "Pickaxe");
 			SetSetting(document, xmlSettings, chkSpeedBoots, "SpeedBoots");
 			SetSetting(document, xmlSettings, chkSteamJump, "SteamJump");
@@ -125,17 +130,18 @@ namespace LiveSplit.SteamWorldDig {
 			settings.AppendChild(xmlOption);
 		}
 		public void SetSettings(XmlNode settings) {
+			AutoReset = GetSetting(settings, "//AutoReset", true);
 			Pickaxe = GetSetting(settings, "//Pickaxe");
-			SpeedBoots = GetSetting(settings, "//SpeedBoots");
-			SteamJump = GetSetting(settings, "//SteamJump");
-			Drill = GetSetting(settings, "//Drill");
+			SpeedBoots = GetSetting(settings, "//SpeedBoots", true);
+			SteamJump = GetSetting(settings, "//SteamJump", true);
+			Drill = GetSetting(settings, "//Drill", true);
 			OldWorld = GetSetting(settings, "//OldWorld");
 			Generator1 = GetSetting(settings, "//Generator1");
-			Biff = GetSetting(settings, "//Biff");
-			SteamPunch = GetSetting(settings, "//SteamPunch");
+			Biff = GetSetting(settings, "//Biff", true);
+			SteamPunch = GetSetting(settings, "//SteamPunch", true);
 			Generator2 = GetSetting(settings, "//Generator2");
 			Vectron = GetSetting(settings, "//Vectron");
-			StaticDash = GetSetting(settings, "//StaticDash");
+			StaticDash = GetSetting(settings, "//StaticDash", true);
 			MineralDetector = GetSetting(settings, "//MineralMarker");
 			Generator3 = GetSetting(settings, "//Generator3");
 			FallDampeners = GetSetting(settings, "//FallDampeners");
@@ -143,12 +149,12 @@ namespace LiveSplit.SteamWorldDig {
 			Gold20K = GetSetting(settings, "//Gold20K");
 			Orbs150 = GetSetting(settings, "//Orbs150");
 		}
-		private bool GetSetting(XmlNode settings, string name) {
+		private bool GetSetting(XmlNode settings, string name, bool defaultVal = false) {
 			XmlNode option = settings.SelectSingleNode(name);
 			if (option != null && option.InnerText != "") {
 				return bool.Parse(option.InnerText);
 			}
-			return false;
+			return defaultVal;
 		}
 	}
 }

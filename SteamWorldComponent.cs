@@ -114,7 +114,7 @@ namespace LiveSplit.SteamWorldDig {
 			}
 
 			lastGameState = gameState;
-			HandleSplit(shouldSplit, gameState == 1);
+			HandleSplit(shouldSplit, gameState == 1 && settings.AutoReset);
 		}
 		private void HandleGameTimes() {
 			if (currentSplit >= 0 && currentSplit <= Model.CurrentState.Run.Count) {

@@ -304,6 +304,7 @@
 			this.chkAutoReset.Text = "Auto Reset";
 			this.toolTips.SetToolTip(this.chkAutoReset, "Will automatically reset your splits if you are on the main menu");
 			this.chkAutoReset.UseVisualStyleBackColor = true;
+			this.chkAutoReset.CheckedChanged += new System.EventHandler(this.chkBox_CheckedChanged);
 			// 
 			// SteamWorldSettings
 			// 

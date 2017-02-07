@@ -21,67 +21,53 @@ namespace LiveSplit.SteamWorldDig {
 			return Program.Read<byte>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x5c0);
 		}
 		public uint BackgroundColor() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				return (uint)Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x5ac);
 			}
 			return 0;
 		}
 		public uint ForegroundColor() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				return (uint)Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x5a4);
 			}
 			return 0;
 		}
 		public int GoldCurrent() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E0);
 			}
 			return 0;
 		}
 		public int GoldTotal() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x340);
 			}
 			return 0;
 		}
 		public int OrbsCurrent() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E4);
 			}
 			return 0;
 		}
 		public int OrbsTotal() {
-			int flag = GameState();
-			if (flag > 2) {
-				int saveIndex = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x0, 0x54, 0x60);
-				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x0, 0x54, 0x18 + 0x20 * saveIndex);
-			}
-			return 0;
+			return Program.Read<int>(Program.MainModule.BaseAddress, 0x2C0638, 0x18 + 0x20 * SaveIndex());
 		}
 		public int Deaths() {
-			int flag = GameState();
-			if (flag > 2) {
-				int saveIndex = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x0, 0x54, 0x60);
-				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x0, 0x54, 0x1c + 0x20 * saveIndex);
-			}
-			return 0;
+			return Program.Read<int>(Program.MainModule.BaseAddress, 0x2C0638, 0x1c + 0x20 * SaveIndex());
 		}
 		public double GameTime() {
-			int flag = GameState();
-			if (flag > 2) {
-				int saveIndex = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x0, 0x54, 0x60);
-				return Program.Read<double>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x0, 0x54, 0x8 + 0x20 * saveIndex);
+			return Program.Read<double>(Program.MainModule.BaseAddress, 0x2C0638, 0x8 + 0x20 * SaveIndex());
+		}
+		public int SaveIndex() {
+			if (GameState() >= 2) {
+				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2C0638, 0x60);
+			} else {
+				return Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x70, 0x1B0);
 			}
-			return 0;
 		}
 		public PointF Position() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				float px = Program.Read<float>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4BC);
 				float py = Program.Read<float>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4C0);
 				return new PointF(px, py);
@@ -89,8 +75,7 @@ namespace LiveSplit.SteamWorldDig {
 			return PointF.Empty;
 		}
 		public string AquiredFlags() {
-			int flag = GameState();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				StringBuilder sb = new StringBuilder();
 				List<string> flags = new List<string>();
 				int capacity = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4EC);
@@ -123,9 +108,8 @@ namespace LiveSplit.SteamWorldDig {
 			return string.Empty;
 		}
 		public HashSet<string> AquiredFlagsHash() {
-			int flag = GameState();
 			HashSet<string> flags = new HashSet<string>();
-			if (flag > 2) {
+			if (GameState() > 2) {
 				int capacity = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4EC);
 				IntPtr start = (IntPtr)Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E8, 0x4 * capacity);
 				do {

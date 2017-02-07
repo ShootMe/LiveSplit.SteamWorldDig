@@ -43,7 +43,7 @@ namespace LiveSplit.SteamWorldDig {
 			bool shouldSplit = false;
 
 			int gameState = mem.GameState();
-			if (currentSplit == -1) {
+			if (currentSplit == -1 && (int)mem.GameTime() == 0) {
 				shouldSplit = lastGameState == 1 && (gameState == 2 || gameState == 3);
 			} else if (Model.CurrentState.CurrentPhase == TimerPhase.Running) {
 				if (currentSplit + 1 < Model.CurrentState.Run.Count) {

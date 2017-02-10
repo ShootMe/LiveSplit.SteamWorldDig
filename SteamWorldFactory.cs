@@ -10,7 +10,7 @@ namespace LiveSplit.SteamWorldDig {
 		public IComponent Create(LiveSplitState state) { return new SteamWorldComponent(); }
 		public string UpdateName { get { return this.ComponentName; } }
 		public string UpdateURL { get { return "https://raw.githubusercontent.com/ShootMe/LiveSplit.SteamWorldDig/master/"; } }
-		public string XMLURL { get { return this.UpdateURL + "Components/LiveSplit.Kalimba.Updates.xml"; } }
+		public string XMLURL { get { return this.UpdateURL + "Components/LiveSplit.SteamWorldDig.Updates.xml"; } }
 		public Version Version { get { return Assembly.GetExecutingAssembly().GetName().Version; } }
 	}
 }

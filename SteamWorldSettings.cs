@@ -103,30 +103,30 @@ namespace LiveSplit.SteamWorldDig {
 		public XmlNode UpdateSettings(XmlDocument document) {
 			XmlElement xmlSettings = document.CreateElement("Settings");
 
-			SetSetting(document, xmlSettings, chkAutoReset, "AutoReset");
-			SetSetting(document, xmlSettings, chkPickaxe, "Pickaxe");
-			SetSetting(document, xmlSettings, chkSpeedBoots, "SpeedBoots");
-			SetSetting(document, xmlSettings, chkSteamJump, "SteamJump");
-			SetSetting(document, xmlSettings, chkDrill, "Drill");
-			SetSetting(document, xmlSettings, chkOldWorld, "OldWorld");
-			SetSetting(document, xmlSettings, chkGenerator1, "Generator1");
-			SetSetting(document, xmlSettings, chkBiff, "Biff");
-			SetSetting(document, xmlSettings, chkSteamPunch, "SteamPunch");
-			SetSetting(document, xmlSettings, chkGenerator2, "Generator2");
-			SetSetting(document, xmlSettings, chkVectron, "Vectron");
-			SetSetting(document, xmlSettings, chkStaticDash, "StaticDash");
-			SetSetting(document, xmlSettings, chkMineralDector, "MineralMarker");
-			SetSetting(document, xmlSettings, chkGenerator3, "Generator3");
-			SetSetting(document, xmlSettings, chkFallDampeners, "FallDampeners");
-			SetSetting(document, xmlSettings, chkDandy, "Dandy");
-			SetSetting(document, xmlSettings, chkGold20K, "Gold20K");
-			SetSetting(document, xmlSettings, chkOrbs150, "Orbs150");
+			SetSetting(document, xmlSettings, AutoReset, "AutoReset");
+			SetSetting(document, xmlSettings, Pickaxe, "Pickaxe");
+			SetSetting(document, xmlSettings, SpeedBoots, "SpeedBoots");
+			SetSetting(document, xmlSettings, SteamJump, "SteamJump");
+			SetSetting(document, xmlSettings, Drill, "Drill");
+			SetSetting(document, xmlSettings, OldWorld, "OldWorld");
+			SetSetting(document, xmlSettings, Generator1, "Generator1");
+			SetSetting(document, xmlSettings, Biff, "Biff");
+			SetSetting(document, xmlSettings, SteamPunch, "SteamPunch");
+			SetSetting(document, xmlSettings, Generator2, "Generator2");
+			SetSetting(document, xmlSettings, Vectron, "Vectron");
+			SetSetting(document, xmlSettings, StaticDash, "StaticDash");
+			SetSetting(document, xmlSettings, MineralDetector, "MineralMarker");
+			SetSetting(document, xmlSettings, Generator3, "Generator3");
+			SetSetting(document, xmlSettings, FallDampeners, "FallDampeners");
+			SetSetting(document, xmlSettings, Dandy, "Dandy");
+			SetSetting(document, xmlSettings, Gold20K, "Gold20K");
+			SetSetting(document, xmlSettings, Orbs150, "Orbs150");
 
 			return xmlSettings;
 		}
-		private void SetSetting(XmlDocument document, XmlElement settings, CheckBox chk, string name) {
+		private void SetSetting(XmlDocument document, XmlElement settings, bool val, string name) {
 			XmlElement xmlOption = document.CreateElement(name);
-			xmlOption.InnerText = chk.Checked.ToString();
+			xmlOption.InnerText = val.ToString();
 			settings.AppendChild(xmlOption);
 		}
 		public void SetSettings(XmlNode settings) {

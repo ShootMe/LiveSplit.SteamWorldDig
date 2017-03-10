@@ -156,13 +156,13 @@ namespace LiveSplit.SteamWorldDig {
 						case "CurrentSplit": curr = currentSplit.ToString(); break;
 						case "State": curr = state.ToString(); break;
 						case "GameState": curr = mem.GameState().ToString("X"); break;
-						case "GameTime": curr = TimeSpan.FromSeconds(mem.GameTime()).TotalMinutes.ToString("0.0"); break;
+						//case "GameTime": curr = TimeSpan.FromSeconds(mem.GameTime()).TotalMinutes.ToString("0.0"); break;
 						case "Aquirements": curr = mem.AquiredFlags(); break;
 						case "GoldTotal": curr = mem.GoldTotal().ToString(); break;
 						case "OrbsTotal": curr = mem.OrbsTotal().ToString(); break;
 						case "Deaths": curr = mem.Deaths().ToString(); break;
-						case "BGColor": curr = mem.BackgroundColor().ToString(); break;
-						case "FGColor": curr = mem.ForegroundColor().ToString(); break;
+						//case "BGColor": curr = mem.BackgroundColor().ToString(); break;
+						//case "FGColor": curr = mem.ForegroundColor().ToString(); break;
 						case "Pos":
 							PointF pos = mem.Position();
 							curr = (pos.X / 10f).ToString("0") + "," + (pos.Y / 10f).ToString("0"); break;

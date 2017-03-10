@@ -79,19 +79,19 @@ namespace LiveSplit.SteamWorldDig {
 				StringBuilder sb = new StringBuilder();
 				List<string> flags = new List<string>();
 				int capacity = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4EC);
-				IntPtr start = (IntPtr)Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E8, 0x4 * capacity);
+				IntPtr start = (IntPtr)Program.Read<uint>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E8, 0x4 * capacity);
 				do {
 					int length = Program.Read<int>(start - 0x10);
 					string currentFlag = string.Empty;
 					if (length >= 16) {
-						currentFlag = Program.ReadAscii((IntPtr)Program.Read<int>(start - 0x20));
+						currentFlag = Program.ReadAscii((IntPtr)Program.Read<uint>(start - 0x20));
 					} else {
 						currentFlag = Program.ReadAscii(start - 0x20);
 					}
 					if (!string.IsNullOrEmpty(currentFlag)) {
 						flags.Add(currentFlag);
 					}
-					start = (IntPtr)Program.Read<int>(start);
+					start = (IntPtr)Program.Read<uint>(start);
 				} while (start != IntPtr.Zero);
 
 				flags.Sort(delegate (string s1, string s2) {
@@ -111,19 +111,19 @@ namespace LiveSplit.SteamWorldDig {
 			HashSet<string> flags = new HashSet<string>();
 			if (GameState() > 2) {
 				int capacity = Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4EC);
-				IntPtr start = (IntPtr)Program.Read<int>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E8, 0x4 * capacity);
+				IntPtr start = (IntPtr)Program.Read<uint>(Program.MainModule.BaseAddress, 0x2BE5BC, 0x60, 0x20, 0x4E8, 0x4 * capacity);
 				do {
 					int length = Program.Read<int>(start - 0x10);
 					string currentFlag = string.Empty;
 					if (length >= 16) {
-						currentFlag = Program.ReadAscii((IntPtr)Program.Read<int>(start - 0x20));
+						currentFlag = Program.ReadAscii((IntPtr)Program.Read<uint>(start - 0x20));
 					} else {
 						currentFlag = Program.ReadAscii(start - 0x20);
 					}
 					if (!string.IsNullOrEmpty(currentFlag)) {
 						flags.Add(currentFlag);
 					}
-					start = (IntPtr)Program.Read<int>(start);
+					start = (IntPtr)Program.Read<uint>(start);
 				} while (start != IntPtr.Zero);
 			}
 			return flags;
